@@ -62,8 +62,8 @@ var AppComponent = (function () {
         this.http = http;
         this.title = 'app';
         // load VDOT data from JSON files
-        this.http.get('../../assets/vdot_results.json').subscribe(function (res) { return _this.vdot_results = res.json(); });
-        this.http.get('../../assets/vdot_training.json').subscribe(function (res) { return _this.vdot_training = res.json(); });
+        this.http.get('../assets/vdot_results.json').subscribe(function (res) { return _this.vdot_results = res.json(); });
+        this.http.get('../assets/vdot_training.json').subscribe(function (res) { return _this.vdot_training = res.json(); });
     }
     return AppComponent;
 }());
