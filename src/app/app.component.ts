@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(private http:Http) {
   	// load VDOT data from JSON files
-    this.http.get('../../assets/vdot_results.json').subscribe(res => this.vdot_results = res.json());
-    this.http.get('../../assets/vdot_training.json').subscribe(res => this.vdot_training = res.json());
+    this.http.get('../assets/vdot_results.json').subscribe(res => this.vdot_results = res.json());
+    this.http.get('../assets/vdot_training.json').subscribe(res => this.vdot_training = res.json());
   }
 }
