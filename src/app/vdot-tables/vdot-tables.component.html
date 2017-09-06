@@ -1,0 +1,57 @@
+<h2>Tabele VDOT</h2>
+<p><strong>Wartości VDOT dla wyników na poszczególnych dystansach</strong></p>
+<p>Poniższa tabela pozwala na prognozowanie wyników nadchodzących zawodów w oparciu o ostatnie rezultaty na innych dystansach.</p>
+<p>Zakłada ona jednak odpowiednie przygotowanie zawodnika do startu w dłuższych biegach. Przykładowo, złamanie 50 minut w zawodach na 10km wcale nie zagwarantuje przebiegnięcia maratonu poniżej 4 godzin - do tego wymagany będzie również odpowiednio duży kilometraż oraz właściwie rozłożenie akcentów treningowch.</p>
+<table class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>VDOT</th>
+      <th>5km</th>
+      <th>10km</th>
+      <th>Półmaraton</th>
+      <th>Maraton</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of vdot_results">
+      <td><strong>{{ result["vdot"] }}</strong></td>
+      <td>{{ convertToHMS(result["5k"]) }}</td>
+      <td>{{ convertToHMS(result["10k"]) }}</td>
+      <td>{{ convertToHMS(result["hm"]) }}</td>
+      <td>{{ convertToHMS(result["m"]) }}</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<p><strong>Intensywność treningu dla poszczególnych wartości VDOT</strong></p>
+<p>Dzięki znajomości swojego VDOT możliwe jest wyznczanie tempa dla poszczególnych jednostek treningowych. Trzymanie się ich pozwoli na regularne oraz bezpiecznie (minimalizacja ryzyka kontucji) postępy.</p>
+<p>Gdy treningi na danych obciążeniach stają się coraz łatwiejsze, a po drodze nie ma żadnego startu kontrolnego, można podnosić wartość VDOT co 4-6 tygodni.</p>
+<table class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>VDOT</th>
+      <th>BS</th>
+      <th>M</th>
+      <th>P 400m</th>
+      <th>P 1000m</th>
+      <th>I 400m</th>
+      <th>I 1000m</th>
+      <th>R 200m</th>
+      <th>R 400m</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let paces of vdot_training">
+      <td><strong>{{ paces["vdot"] }}</strong></td>
+      <td>{{ convertToHMS(paces["bs1000"]) }}</td>
+      <td>{{ convertToHMS(paces["m1000"]) }}</td>
+      <td>{{ convertToHMS(paces["p400"]) }}</td>
+      <td>{{ convertToHMS(paces["p1000"]) }}</td>
+      <td>{{ convertToHMS(paces["i400"]) }}</td>
+      <td>{{ convertToHMS(paces["i1000"]) }}</td>
+      <td>{{ convertToHMS(paces["r200"]) }}</td>
+      <td>{{ convertToHMS(paces["r400"]) }}</td>
+    </tr>
+  </tbody>
+</table>
+<br>

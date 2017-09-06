@@ -1,0 +1,36 @@
+<h2>Wyznaczanie intensywności treningu</h2>
+<p>Opracowany przez amerykańskiego trenera biegowego Jacka Danielsa wskaźnik VDOT umożliwia ocenę aktualnej formy, prognozę wyników na innych dystansach oraz dobór optymalnych obciążeń treningowych, dzięki którym możliwa będzie systematyczna poprawa swoich osiągnęć.</p>
+<p>Aby poznać swoją aktualną formę, wpisz wyników ostatnich zawodów (przebiegniętych "na maksa", nie treningowo) na jednym z najpopularniejszych dystansów. Otrzymasz wartość wskaźnika VDOT oraz wyliczone tempa dla różnych jednostek treningowych.</p>
+<select class="form-control input-short" [(ngModel)]="distance">
+	<option value="0">wybierz dystans</option>
+	<option value="5k">5km</option>
+	<option value="10k">10km</option>
+	<option value="hm">półmaraton</option>
+	<option value="m">maraton</option>
+</select>
+<input type="text" class="form-control input-short" [(ngModel)]="h">
+<span>godzin</span>
+<input type="text" class="form-control input-short" [(ngModel)]="m">
+<span>minut</span>
+<input type="text" class="form-control input-short" [(ngModel)]="s">
+<span>sekund</span>
+<br>
+<br>
+<button class="btn btn-primary" (click)="calculateTraining()">Wylicz treningi</button>
+<br>
+<br>
+<div *ngIf="validData" class="alert alert-info">
+	<p>Twój wskaźnik VDOT wynosi <strong>{{ vdot }}</strong>.</p>
+	<p>Aby poprawiać swoje wyniki, powinieneś trenować:</p>
+	<ul>
+		<li>biegi spokojne (rozbiegania, długie wybiegania) - <strong>{{ convertToPace(trainingPaces['bs1000']) }}</strong></li>
+		<li>tempo maratońskie - <strong>{{ convertToPace(trainingPaces['m1000']) }}</strong></li>
+		<li>biegi progowe 400m - <strong>{{ convertToPace(trainingPaces['p400']) }}</strong></li>	
+		<li>biegi progowe 1000m - <strong>{{ convertToPace(trainingPaces['p1000']) }}</strong></li>
+		<li>interwały 400m - <strong>{{ convertToPace(trainingPaces['i400']) }}</strong></li>
+		<li>interwały 1000m - <strong>{{ convertToPace(trainingPaces['i1000']) }}</strong></li>
+		<li>rytmy 200m - <strong>{{ convertToPace(trainingPaces['r200']) }}</strong></li>
+		<li>rytmy 400m - <strong>{{ convertToPace(trainingPaces['r400']) }}</strong></li>
+	</ul>
+</div>
+<div *ngIf="!validData && buttonClicked" class="alert alert-danger">Podane dane są niepoprawne.</div>

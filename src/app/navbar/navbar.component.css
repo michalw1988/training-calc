@@ -1,0 +1,30 @@
+nav {
+	border-radius: 0;
+	margin: 0;
+	background: #337ab7 !important;
+	border-bottom: 0;
+}
+
+nav * {
+	outline: none;
+}
+
+nav a {
+	color: #fff !important;
+}
+
+nav a:hover, nav a:focus {
+	color: #ddd !important;
+}
+
+.navbar-toggle {
+	border-color: #fff !important;
+}
+
+.navbar-toggle:hover, .navbar-toggle:focus {
+	background: #286090 !important
+}
+
+.navbar-collapse {
+	border-top-color: #fff !important;
+}

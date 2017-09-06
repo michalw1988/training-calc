@@ -1,0 +1,18 @@
+input.input-short {
+	display: inline;
+	width: 50px;
+}
+
+select.input-short {
+	display: inline;
+	width: 150px;
+	margin-right: 10px;
+}
+
+ul {
+	padding-left: 15px;
+}
+
+li {
+	padding-top: 3px;
+}

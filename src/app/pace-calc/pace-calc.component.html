@@ -1,0 +1,34 @@
+<h2>Kalkulator tempa</h2>
+<p>Wprowadź dystans zawodów, w których zamierzasz wystartować oraz wynik, jaki chciałbyś mieć na mecie. Dowiesz się jakie średne tempo będziesz musiał utrzymywać, by zrealizować plan.</p>
+<p>Wybierając któryś z popularnych dystansów poznasz również wartość wskaźnika VDOT, którą powinieneś wytrenować, aby realnie myśleć o przybiegnięciu na metę w zakładanym czasie.</p>
+<label>Dystans</label>
+<br>
+<select class="form-control input-short" [(ngModel)]="distance">
+	<option value="0">dowolny</option>
+	<option value="5">5km</option>
+	<option value="10">10km</option>
+	<option value="21.097">półmaraton</option>
+	<option value="42.195">maraton</option>
+</select> 
+<input type="text" class="form-control input-short" value="{{ distance }}" [(ngModel)]="distance">
+<span>km</span>
+<br>
+<label>Planowany wynik</label>
+<br>
+<input type="text" class="form-control input-short" [(ngModel)]="h">
+<span>godzin</span>
+<input type="text" class="form-control input-short" [(ngModel)]="m">
+<span>minut</span>
+<input type="text" class="form-control input-short" [(ngModel)]="s">
+<span>sekund</span>
+<br>
+<br>
+<button class="btn btn-primary" (click)="calculatePace()">Oblicz tempo</button>
+<br>
+<br>
+<div *ngIf="validData" class="alert alert-info">
+	<p>Taki wynik wymaga utrzymania średniego tempa <strong>{{ pace }} min/km</strong>.</p>
+	<p *ngIf="showVdot">By było to możliwe, potrzebujesz VDOT na poziomie co najmniej <strong>{{vdot}}</strong>.</p>
+</div>
+<div *ngIf="!validData && buttonClicked" class="alert alert-danger">Podane dane są niepoprawne.</div>
+<br>

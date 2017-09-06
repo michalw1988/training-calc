@@ -1,0 +1,11 @@
+input.input-short {
+	display: inline;
+	width: 70px;
+}
+
+select.input-short {
+	display: inline;
+	width: 150px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
